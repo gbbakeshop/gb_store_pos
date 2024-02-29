@@ -1,4 +1,8 @@
-part of 'pos_bloc.dart';
+abstract class PosEvent {
+  const PosEvent();
+}
 
-@immutable
-sealed class PosEvent {}
+class SearchItem extends PosEvent {
+  final String searchItem;
+  const SearchItem(this.searchItem);
+}
