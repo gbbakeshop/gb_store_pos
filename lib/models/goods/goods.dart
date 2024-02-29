@@ -1,20 +1,20 @@
 // ignore_for_file: invalid_annotation_target, depend_on_referenced_packages
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'item_list.freezed.dart';
-part 'item_list.g.dart';
+part 'goods.freezed.dart';
+part 'goods.g.dart';
 
+@JsonSerializable(explicitToJson: true)
 @freezed
-class ItemList with _$ItemList {
-  const factory ItemList({
+class Goods with _$Goods {
+  const factory Goods({
     @JsonKey(name: 'id') int? id,
     @JsonKey(name: 'barcode') int? barcode,
     @JsonKey(name: 'description') String? description,
     @JsonKey(name: 'quantity') int? quantity,
     @JsonKey(name: 'price') int? price,
     @JsonKey(name: 'total') int? total,
-  }) = _ItemList;
+  }) = _Goods;
 
-  factory ItemList.fromJson(Map<String, dynamic> json) =>
-      _$$_ItemListFromJson(json);
+  factory Goods.fromJson(Map<String, dynamic> json) => _$GoodsFromJson(json);
 }

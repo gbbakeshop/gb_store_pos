@@ -17,6 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$PosState {
   String? get searchInput => throw _privateConstructorUsedError;
+  Goods? get goods => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PosStateCopyWith<PosState> get copyWith =>
@@ -28,7 +29,9 @@ abstract class $PosStateCopyWith<$Res> {
   factory $PosStateCopyWith(PosState value, $Res Function(PosState) then) =
       _$PosStateCopyWithImpl<$Res, PosState>;
   @useResult
-  $Res call({String? searchInput});
+  $Res call({String? searchInput, Goods? goods});
+
+  $GoodsCopyWith<$Res>? get goods;
 }
 
 /// @nodoc
@@ -45,13 +48,30 @@ class _$PosStateCopyWithImpl<$Res, $Val extends PosState>
   @override
   $Res call({
     Object? searchInput = freezed,
+    Object? goods = freezed,
   }) {
     return _then(_value.copyWith(
       searchInput: freezed == searchInput
           ? _value.searchInput
           : searchInput // ignore: cast_nullable_to_non_nullable
               as String?,
+      goods: freezed == goods
+          ? _value.goods
+          : goods // ignore: cast_nullable_to_non_nullable
+              as Goods?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $GoodsCopyWith<$Res>? get goods {
+    if (_value.goods == null) {
+      return null;
+    }
+
+    return $GoodsCopyWith<$Res>(_value.goods!, (value) {
+      return _then(_value.copyWith(goods: value) as $Val);
+    });
   }
 }
 
@@ -63,7 +83,10 @@ abstract class _$$PosStateImplCopyWith<$Res>
       __$$PosStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? searchInput});
+  $Res call({String? searchInput, Goods? goods});
+
+  @override
+  $GoodsCopyWith<$Res>? get goods;
 }
 
 /// @nodoc
@@ -78,12 +101,17 @@ class __$$PosStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? searchInput = freezed,
+    Object? goods = freezed,
   }) {
     return _then(_$PosStateImpl(
       searchInput: freezed == searchInput
           ? _value.searchInput
           : searchInput // ignore: cast_nullable_to_non_nullable
               as String?,
+      goods: freezed == goods
+          ? _value.goods
+          : goods // ignore: cast_nullable_to_non_nullable
+              as Goods?,
     ));
   }
 }
@@ -91,15 +119,17 @@ class __$$PosStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$PosStateImpl implements _PosState {
-  const _$PosStateImpl({this.searchInput = null});
+  const _$PosStateImpl({this.searchInput = '', this.goods});
 
   @override
   @JsonKey()
   final String? searchInput;
+  @override
+  final Goods? goods;
 
   @override
   String toString() {
-    return 'PosState(searchInput: $searchInput)';
+    return 'PosState(searchInput: $searchInput, goods: $goods)';
   }
 
   @override
@@ -108,11 +138,12 @@ class _$PosStateImpl implements _PosState {
         (other.runtimeType == runtimeType &&
             other is _$PosStateImpl &&
             (identical(other.searchInput, searchInput) ||
-                other.searchInput == searchInput));
+                other.searchInput == searchInput) &&
+            (identical(other.goods, goods) || other.goods == goods));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, searchInput);
+  int get hashCode => Object.hash(runtimeType, searchInput, goods);
 
   @JsonKey(ignore: true)
   @override
@@ -122,10 +153,13 @@ class _$PosStateImpl implements _PosState {
 }
 
 abstract class _PosState implements PosState {
-  const factory _PosState({final String? searchInput}) = _$PosStateImpl;
+  const factory _PosState({final String? searchInput, final Goods? goods}) =
+      _$PosStateImpl;
 
   @override
   String? get searchInput;
+  @override
+  Goods? get goods;
   @override
   @JsonKey(ignore: true)
   _$$PosStateImplCopyWith<_$PosStateImpl> get copyWith =>

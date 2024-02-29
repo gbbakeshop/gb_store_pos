@@ -1,2 +1,2 @@
 export 'result/result.dart';
-export 'item/item_list.dart';
+export 'goods/goods.dart';

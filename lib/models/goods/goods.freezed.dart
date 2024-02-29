@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'item_list.dart';
+part of 'goods.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-ItemList _$ItemListFromJson(Map<String, dynamic> json) {
-  return _ItemList.fromJson(json);
+Goods _$GoodsFromJson(Map<String, dynamic> json) {
+  return _Goods.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ItemList {
+mixin _$Goods {
   @JsonKey(name: 'id')
   int? get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'barcode')
@@ -35,14 +35,13 @@ mixin _$ItemList {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ItemListCopyWith<ItemList> get copyWith =>
-      throw _privateConstructorUsedError;
+  $GoodsCopyWith<Goods> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ItemListCopyWith<$Res> {
-  factory $ItemListCopyWith(ItemList value, $Res Function(ItemList) then) =
-      _$ItemListCopyWithImpl<$Res, ItemList>;
+abstract class $GoodsCopyWith<$Res> {
+  factory $GoodsCopyWith(Goods value, $Res Function(Goods) then) =
+      _$GoodsCopyWithImpl<$Res, Goods>;
   @useResult
   $Res call(
       {@JsonKey(name: 'id') int? id,
@@ -54,9 +53,9 @@ abstract class $ItemListCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ItemListCopyWithImpl<$Res, $Val extends ItemList>
-    implements $ItemListCopyWith<$Res> {
-  _$ItemListCopyWithImpl(this._value, this._then);
+class _$GoodsCopyWithImpl<$Res, $Val extends Goods>
+    implements $GoodsCopyWith<$Res> {
+  _$GoodsCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -103,11 +102,10 @@ class _$ItemListCopyWithImpl<$Res, $Val extends ItemList>
 }
 
 /// @nodoc
-abstract class _$$ItemListImplCopyWith<$Res>
-    implements $ItemListCopyWith<$Res> {
-  factory _$$ItemListImplCopyWith(
-          _$ItemListImpl value, $Res Function(_$ItemListImpl) then) =
-      __$$ItemListImplCopyWithImpl<$Res>;
+abstract class _$$GoodsImplCopyWith<$Res> implements $GoodsCopyWith<$Res> {
+  factory _$$GoodsImplCopyWith(
+          _$GoodsImpl value, $Res Function(_$GoodsImpl) then) =
+      __$$GoodsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -120,11 +118,11 @@ abstract class _$$ItemListImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$ItemListImplCopyWithImpl<$Res>
-    extends _$ItemListCopyWithImpl<$Res, _$ItemListImpl>
-    implements _$$ItemListImplCopyWith<$Res> {
-  __$$ItemListImplCopyWithImpl(
-      _$ItemListImpl _value, $Res Function(_$ItemListImpl) _then)
+class __$$GoodsImplCopyWithImpl<$Res>
+    extends _$GoodsCopyWithImpl<$Res, _$GoodsImpl>
+    implements _$$GoodsImplCopyWith<$Res> {
+  __$$GoodsImplCopyWithImpl(
+      _$GoodsImpl _value, $Res Function(_$GoodsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -137,7 +135,7 @@ class __$$ItemListImplCopyWithImpl<$Res>
     Object? price = freezed,
     Object? total = freezed,
   }) {
-    return _then(_$ItemListImpl(
+    return _then(_$GoodsImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -168,8 +166,8 @@ class __$$ItemListImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ItemListImpl implements _ItemList {
-  const _$ItemListImpl(
+class _$GoodsImpl implements _Goods {
+  const _$GoodsImpl(
       {@JsonKey(name: 'id') this.id,
       @JsonKey(name: 'barcode') this.barcode,
       @JsonKey(name: 'description') this.description,
@@ -177,8 +175,8 @@ class _$ItemListImpl implements _ItemList {
       @JsonKey(name: 'price') this.price,
       @JsonKey(name: 'total') this.total});
 
-  factory _$ItemListImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ItemListImplFromJson(json);
+  factory _$GoodsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GoodsImplFromJson(json);
 
   @override
   @JsonKey(name: 'id')
@@ -201,14 +199,14 @@ class _$ItemListImpl implements _ItemList {
 
   @override
   String toString() {
-    return 'ItemList(id: $id, barcode: $barcode, description: $description, quantity: $quantity, price: $price, total: $total)';
+    return 'Goods(id: $id, barcode: $barcode, description: $description, quantity: $quantity, price: $price, total: $total)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ItemListImpl &&
+            other is _$GoodsImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.barcode, barcode) || other.barcode == barcode) &&
             (identical(other.description, description) ||
@@ -227,28 +225,27 @@ class _$ItemListImpl implements _ItemList {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ItemListImplCopyWith<_$ItemListImpl> get copyWith =>
-      __$$ItemListImplCopyWithImpl<_$ItemListImpl>(this, _$identity);
+  _$$GoodsImplCopyWith<_$GoodsImpl> get copyWith =>
+      __$$GoodsImplCopyWithImpl<_$GoodsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ItemListImplToJson(
+    return _$$GoodsImplToJson(
       this,
     );
   }
 }
 
-abstract class _ItemList implements ItemList {
-  const factory _ItemList(
+abstract class _Goods implements Goods {
+  const factory _Goods(
       {@JsonKey(name: 'id') final int? id,
       @JsonKey(name: 'barcode') final int? barcode,
       @JsonKey(name: 'description') final String? description,
       @JsonKey(name: 'quantity') final int? quantity,
       @JsonKey(name: 'price') final int? price,
-      @JsonKey(name: 'total') final int? total}) = _$ItemListImpl;
+      @JsonKey(name: 'total') final int? total}) = _$GoodsImpl;
 
-  factory _ItemList.fromJson(Map<String, dynamic> json) =
-      _$ItemListImpl.fromJson;
+  factory _Goods.fromJson(Map<String, dynamic> json) = _$GoodsImpl.fromJson;
 
   @override
   @JsonKey(name: 'id')
@@ -270,6 +267,6 @@ abstract class _ItemList implements ItemList {
   int? get total;
   @override
   @JsonKey(ignore: true)
-  _$$ItemListImplCopyWith<_$ItemListImpl> get copyWith =>
+  _$$GoodsImplCopyWith<_$GoodsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

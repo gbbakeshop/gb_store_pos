@@ -8,15 +8,21 @@ class ItemRepository {
   ItemRepository({required ItemService itemService})
       : _itemService = itemService;
 
-  Future<Result<List<ItemList>>> search({
-    required String course,
+  Future<Result<Goods>> search({
+    required String id,
   }) async {
-    var response = await _itemService.searchItem(params: 'param=$course');
+    var response = await _itemService.searchItem(id: id);
     var body = jsonDecode(response.body);
+    print('Response Body: $body');
 
-    List searched = body['data'];
+    // Check the status in the response
+    var status = body['status'];
+    print('status $status');
+
+    var goods = Goods.fromJson(body);
+    print('Goods Object: $goods');
     return Result(
-      // data: searched.map((e) => ItemList.fromJson(e)).toSet().toList(),
+      data: Goods.fromJson(body),
       statusCode: response.statusCode,
     );
   }

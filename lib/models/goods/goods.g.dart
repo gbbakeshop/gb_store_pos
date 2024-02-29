@@ -1,13 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'item_list.dart';
+part of 'goods.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ItemListImpl _$$ItemListImplFromJson(Map<String, dynamic> json) =>
-    _$ItemListImpl(
+_$GoodsImpl _$$GoodsImplFromJson(Map<String, dynamic> json) => _$GoodsImpl(
       id: json['id'] as int?,
       barcode: json['barcode'] as int?,
       description: json['description'] as String?,
@@ -16,7 +15,7 @@ _$ItemListImpl _$$ItemListImplFromJson(Map<String, dynamic> json) =>
       total: json['total'] as int?,
     );
 
-Map<String, dynamic> _$$ItemListImplToJson(_$ItemListImpl instance) =>
+Map<String, dynamic> _$$GoodsImplToJson(_$GoodsImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'barcode': instance.barcode,
