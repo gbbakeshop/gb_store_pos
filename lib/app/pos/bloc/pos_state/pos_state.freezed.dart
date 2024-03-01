@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$PosState {
   String? get searchInput => throw _privateConstructorUsedError;
   Goods? get goods => throw _privateConstructorUsedError;
+  RequestStatus get requestStatus => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PosStateCopyWith<PosState> get copyWith =>
@@ -29,7 +30,7 @@ abstract class $PosStateCopyWith<$Res> {
   factory $PosStateCopyWith(PosState value, $Res Function(PosState) then) =
       _$PosStateCopyWithImpl<$Res, PosState>;
   @useResult
-  $Res call({String? searchInput, Goods? goods});
+  $Res call({String? searchInput, Goods? goods, RequestStatus requestStatus});
 
   $GoodsCopyWith<$Res>? get goods;
 }
@@ -49,6 +50,7 @@ class _$PosStateCopyWithImpl<$Res, $Val extends PosState>
   $Res call({
     Object? searchInput = freezed,
     Object? goods = freezed,
+    Object? requestStatus = null,
   }) {
     return _then(_value.copyWith(
       searchInput: freezed == searchInput
@@ -59,6 +61,10 @@ class _$PosStateCopyWithImpl<$Res, $Val extends PosState>
           ? _value.goods
           : goods // ignore: cast_nullable_to_non_nullable
               as Goods?,
+      requestStatus: null == requestStatus
+          ? _value.requestStatus
+          : requestStatus // ignore: cast_nullable_to_non_nullable
+              as RequestStatus,
     ) as $Val);
   }
 
@@ -83,7 +89,7 @@ abstract class _$$PosStateImplCopyWith<$Res>
       __$$PosStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? searchInput, Goods? goods});
+  $Res call({String? searchInput, Goods? goods, RequestStatus requestStatus});
 
   @override
   $GoodsCopyWith<$Res>? get goods;
@@ -102,6 +108,7 @@ class __$$PosStateImplCopyWithImpl<$Res>
   $Res call({
     Object? searchInput = freezed,
     Object? goods = freezed,
+    Object? requestStatus = null,
   }) {
     return _then(_$PosStateImpl(
       searchInput: freezed == searchInput
@@ -112,6 +119,10 @@ class __$$PosStateImplCopyWithImpl<$Res>
           ? _value.goods
           : goods // ignore: cast_nullable_to_non_nullable
               as Goods?,
+      requestStatus: null == requestStatus
+          ? _value.requestStatus
+          : requestStatus // ignore: cast_nullable_to_non_nullable
+              as RequestStatus,
     ));
   }
 }
@@ -119,17 +130,23 @@ class __$$PosStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$PosStateImpl implements _PosState {
-  const _$PosStateImpl({this.searchInput = '', this.goods});
+  const _$PosStateImpl(
+      {this.searchInput = '',
+      this.goods,
+      this.requestStatus = RequestStatus.waiting});
 
   @override
   @JsonKey()
   final String? searchInput;
   @override
   final Goods? goods;
+  @override
+  @JsonKey()
+  final RequestStatus requestStatus;
 
   @override
   String toString() {
-    return 'PosState(searchInput: $searchInput, goods: $goods)';
+    return 'PosState(searchInput: $searchInput, goods: $goods, requestStatus: $requestStatus)';
   }
 
   @override
@@ -139,11 +156,14 @@ class _$PosStateImpl implements _PosState {
             other is _$PosStateImpl &&
             (identical(other.searchInput, searchInput) ||
                 other.searchInput == searchInput) &&
-            (identical(other.goods, goods) || other.goods == goods));
+            (identical(other.goods, goods) || other.goods == goods) &&
+            (identical(other.requestStatus, requestStatus) ||
+                other.requestStatus == requestStatus));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, searchInput, goods);
+  int get hashCode =>
+      Object.hash(runtimeType, searchInput, goods, requestStatus);
 
   @JsonKey(ignore: true)
   @override
@@ -153,13 +173,17 @@ class _$PosStateImpl implements _PosState {
 }
 
 abstract class _PosState implements PosState {
-  const factory _PosState({final String? searchInput, final Goods? goods}) =
-      _$PosStateImpl;
+  const factory _PosState(
+      {final String? searchInput,
+      final Goods? goods,
+      final RequestStatus requestStatus}) = _$PosStateImpl;
 
   @override
   String? get searchInput;
   @override
   Goods? get goods;
+  @override
+  RequestStatus get requestStatus;
   @override
   @JsonKey(ignore: true)
   _$$PosStateImplCopyWith<_$PosStateImpl> get copyWith =>

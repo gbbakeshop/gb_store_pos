@@ -22,7 +22,7 @@ class _PosPageState extends State<PosPage> {
     double containerHeight = viewportHeight * 0.75;
     return BlocProvider<PosBloc>(
       create: (context) => PosBloc(
-          initialState: widget.initialState ?? PosState(),
+          initialState: widget.initialState ?? const PosState(),
           itemRepository: RepositoryProvider.of<ItemRepository>(context)),
       child: Scaffold(
         appBar: AppBar(

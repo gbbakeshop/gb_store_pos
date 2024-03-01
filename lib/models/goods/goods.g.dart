@@ -8,10 +8,10 @@ part of 'goods.dart';
 
 _$GoodsImpl _$$GoodsImplFromJson(Map<String, dynamic> json) => _$GoodsImpl(
       id: json['id'] as int?,
-      barcode: json['barcode'] as int?,
-      description: json['description'] as String?,
-      quantity: json['quantity'] as int?,
-      price: json['price'] as int?,
+      barcode: json['barcode'] as String? ?? '',
+      description: json['description'] as String? ?? '',
+      quantity: json['quantity'] as int? ?? 0,
+      price: (json['price'] as num?)?.toDouble() ?? 0,
       total: json['total'] as int?,
     );
 

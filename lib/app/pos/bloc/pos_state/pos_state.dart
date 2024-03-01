@@ -8,5 +8,6 @@ class PosState with _$PosState {
   const factory PosState({
     @Default('') String? searchInput,
     Goods? goods,
+    @Default(RequestStatus.waiting) RequestStatus requestStatus,
   }) = _PosState;
 }

@@ -12,17 +12,18 @@ class ItemRepository {
     required String id,
   }) async {
     var response = await _itemService.searchItem(id: id);
+    print('Raw JSON Response: ${response.body}');
+
     var body = jsonDecode(response.body);
-    print('Response Body: $body');
-
     // Check the status in the response
-    var status = body['status'];
-    print('status $status');
-
-    var goods = Goods.fromJson(body);
-    print('Goods Object: $goods');
+    // var status = body['status'];
+    // print('status $status');
+    // var goods = Goods.fromJson(body['data']);
+    // print('Deserialized Goods: $goods');
+    // var goods = Goods.fromJson(body);
+    // print('Goods Object: $goods');
     return Result(
-      data: Goods.fromJson(body),
+      data: Goods.fromJson(body['data']),
       statusCode: response.statusCode,
     );
   }

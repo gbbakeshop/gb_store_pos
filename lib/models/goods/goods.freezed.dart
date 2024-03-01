@@ -23,13 +23,13 @@ mixin _$Goods {
   @JsonKey(name: 'id')
   int? get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'barcode')
-  int? get barcode => throw _privateConstructorUsedError;
+  String get barcode => throw _privateConstructorUsedError;
   @JsonKey(name: 'description')
   String? get description => throw _privateConstructorUsedError;
   @JsonKey(name: 'quantity')
-  int? get quantity => throw _privateConstructorUsedError;
+  int get quantity => throw _privateConstructorUsedError;
   @JsonKey(name: 'price')
-  int? get price => throw _privateConstructorUsedError;
+  double get price => throw _privateConstructorUsedError;
   @JsonKey(name: 'total')
   int? get total => throw _privateConstructorUsedError;
 
@@ -45,10 +45,10 @@ abstract class $GoodsCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: 'id') int? id,
-      @JsonKey(name: 'barcode') int? barcode,
+      @JsonKey(name: 'barcode') String barcode,
       @JsonKey(name: 'description') String? description,
-      @JsonKey(name: 'quantity') int? quantity,
-      @JsonKey(name: 'price') int? price,
+      @JsonKey(name: 'quantity') int quantity,
+      @JsonKey(name: 'price') double price,
       @JsonKey(name: 'total') int? total});
 }
 
@@ -66,10 +66,10 @@ class _$GoodsCopyWithImpl<$Res, $Val extends Goods>
   @override
   $Res call({
     Object? id = freezed,
-    Object? barcode = freezed,
+    Object? barcode = null,
     Object? description = freezed,
-    Object? quantity = freezed,
-    Object? price = freezed,
+    Object? quantity = null,
+    Object? price = null,
     Object? total = freezed,
   }) {
     return _then(_value.copyWith(
@@ -77,22 +77,22 @@ class _$GoodsCopyWithImpl<$Res, $Val extends Goods>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
-      barcode: freezed == barcode
+      barcode: null == barcode
           ? _value.barcode
           : barcode // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as String,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      quantity: freezed == quantity
+      quantity: null == quantity
           ? _value.quantity
           : quantity // ignore: cast_nullable_to_non_nullable
-              as int?,
-      price: freezed == price
+              as int,
+      price: null == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double,
       total: freezed == total
           ? _value.total
           : total // ignore: cast_nullable_to_non_nullable
@@ -110,10 +110,10 @@ abstract class _$$GoodsImplCopyWith<$Res> implements $GoodsCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: 'id') int? id,
-      @JsonKey(name: 'barcode') int? barcode,
+      @JsonKey(name: 'barcode') String barcode,
       @JsonKey(name: 'description') String? description,
-      @JsonKey(name: 'quantity') int? quantity,
-      @JsonKey(name: 'price') int? price,
+      @JsonKey(name: 'quantity') int quantity,
+      @JsonKey(name: 'price') double price,
       @JsonKey(name: 'total') int? total});
 }
 
@@ -129,10 +129,10 @@ class __$$GoodsImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
-    Object? barcode = freezed,
+    Object? barcode = null,
     Object? description = freezed,
-    Object? quantity = freezed,
-    Object? price = freezed,
+    Object? quantity = null,
+    Object? price = null,
     Object? total = freezed,
   }) {
     return _then(_$GoodsImpl(
@@ -140,22 +140,22 @@ class __$$GoodsImplCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
-      barcode: freezed == barcode
+      barcode: null == barcode
           ? _value.barcode
           : barcode // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as String,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      quantity: freezed == quantity
+      quantity: null == quantity
           ? _value.quantity
           : quantity // ignore: cast_nullable_to_non_nullable
-              as int?,
-      price: freezed == price
+              as int,
+      price: null == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double,
       total: freezed == total
           ? _value.total
           : total // ignore: cast_nullable_to_non_nullable
@@ -169,10 +169,10 @@ class __$$GoodsImplCopyWithImpl<$Res>
 class _$GoodsImpl implements _Goods {
   const _$GoodsImpl(
       {@JsonKey(name: 'id') this.id,
-      @JsonKey(name: 'barcode') this.barcode,
-      @JsonKey(name: 'description') this.description,
-      @JsonKey(name: 'quantity') this.quantity,
-      @JsonKey(name: 'price') this.price,
+      @JsonKey(name: 'barcode') this.barcode = '',
+      @JsonKey(name: 'description') this.description = '',
+      @JsonKey(name: 'quantity') this.quantity = 0,
+      @JsonKey(name: 'price') this.price = 0,
       @JsonKey(name: 'total') this.total});
 
   factory _$GoodsImpl.fromJson(Map<String, dynamic> json) =>
@@ -183,16 +183,16 @@ class _$GoodsImpl implements _Goods {
   final int? id;
   @override
   @JsonKey(name: 'barcode')
-  final int? barcode;
+  final String barcode;
   @override
   @JsonKey(name: 'description')
   final String? description;
   @override
   @JsonKey(name: 'quantity')
-  final int? quantity;
+  final int quantity;
   @override
   @JsonKey(name: 'price')
-  final int? price;
+  final double price;
   @override
   @JsonKey(name: 'total')
   final int? total;
@@ -239,10 +239,10 @@ class _$GoodsImpl implements _Goods {
 abstract class _Goods implements Goods {
   const factory _Goods(
       {@JsonKey(name: 'id') final int? id,
-      @JsonKey(name: 'barcode') final int? barcode,
+      @JsonKey(name: 'barcode') final String barcode,
       @JsonKey(name: 'description') final String? description,
-      @JsonKey(name: 'quantity') final int? quantity,
-      @JsonKey(name: 'price') final int? price,
+      @JsonKey(name: 'quantity') final int quantity,
+      @JsonKey(name: 'price') final double price,
       @JsonKey(name: 'total') final int? total}) = _$GoodsImpl;
 
   factory _Goods.fromJson(Map<String, dynamic> json) = _$GoodsImpl.fromJson;
@@ -252,16 +252,16 @@ abstract class _Goods implements Goods {
   int? get id;
   @override
   @JsonKey(name: 'barcode')
-  int? get barcode;
+  String get barcode;
   @override
   @JsonKey(name: 'description')
   String? get description;
   @override
   @JsonKey(name: 'quantity')
-  int? get quantity;
+  int get quantity;
   @override
   @JsonKey(name: 'price')
-  int? get price;
+  double get price;
   @override
   @JsonKey(name: 'total')
   int? get total;

@@ -3,6 +3,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:gb_pos_store/app/pos/bloc/pos_event.dart';
 import 'package:gb_pos_store/app/pos/bloc/pos_state/pos_state.dart';
+import 'package:gb_pos_store/models/result/result.dart';
 import 'package:gb_pos_store/repositories/item_repository.dart';
 import 'package:gb_pos_store/repositories/repositories.dart';
 
@@ -17,8 +18,23 @@ class PosBloc extends Bloc<PosEvent, PosState> {
 
   Future<void> _searchItem(SearchItem event, Emitter<PosState> emit) async {
     emit(state.copyWith(searchInput: event.searchItem));
-    print('event ${event.searchItem}');
+    // print('event: ${event.searchItem}');
     var result = await _itemRepository.search(id: event.searchItem);
-    // print('result data ${result.data}');
+    print('here ${result.data}');
+    switch (result.resultStatus) {
+      case ResultStatus.success:
+        var goods = result.data;
+        if (goods != null) {
+          emit(state.copyWith(goods: result.data));
+        }
+      case ResultStatus.error:
+        emit(
+          state.copyWith(
+            requestStatus: RequestStatus.failure,
+            // message: 'Error',
+          ),
+        );
+      case ResultStatus.none:
+    }
   }
 }
