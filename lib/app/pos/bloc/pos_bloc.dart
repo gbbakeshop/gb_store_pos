@@ -25,7 +25,13 @@ class PosBloc extends Bloc<PosEvent, PosState> {
       case ResultStatus.success:
         var goods = result.data;
         if (goods != null) {
-          emit(state.copyWith(goods: result.data));
+          // emit(state.copyWith(goods: result.data));
+          emit(state.copyWith(goods: [
+            ...(state.goods ?? []), // Add existing goods if they exist
+            if (result.data != null)
+              result.data!, // Add result.data if it's not null
+          ]));
+          emit(state.copyWith(searchInput: ''));
         }
       case ResultStatus.error:
         emit(

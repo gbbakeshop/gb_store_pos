@@ -70,15 +70,16 @@ class _PosPageState extends State<PosPage> {
                               onPressed: () {
                                 // Add your button onPressed logic here
                               },
-                              // style: ElevatedButton.styleFrom(
-                              //   primary: Colors.red,
-                              //   minimumSize: const Size(double.infinity,
-                              //       50), // Full width and 50 height
-                              //   shape: RoundedRectangleBorder(
-                              //     borderRadius: BorderRadius.circular(
-                              //         4), // Rectangular border radius
-                              //   ),
-                              // ),
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor:
+                                    const Color.fromARGB(255, 238, 111, 102),
+                                minimumSize: const Size(double.infinity,
+                                    50), // Full width and 50 height
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(
+                                      4), // Rectangular border radius
+                                ),
+                              ),
                               child: const Text(
                                 'PAY',
                                 style: TextStyle(

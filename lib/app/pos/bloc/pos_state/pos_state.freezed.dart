@@ -16,8 +16,9 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$PosState {
-  String? get searchInput => throw _privateConstructorUsedError;
-  Goods? get goods => throw _privateConstructorUsedError;
+  String? get searchInput =>
+      throw _privateConstructorUsedError; // Goods? goods,
+  List<Goods> get goods => throw _privateConstructorUsedError;
   RequestStatus get requestStatus => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -30,9 +31,8 @@ abstract class $PosStateCopyWith<$Res> {
   factory $PosStateCopyWith(PosState value, $Res Function(PosState) then) =
       _$PosStateCopyWithImpl<$Res, PosState>;
   @useResult
-  $Res call({String? searchInput, Goods? goods, RequestStatus requestStatus});
-
-  $GoodsCopyWith<$Res>? get goods;
+  $Res call(
+      {String? searchInput, List<Goods> goods, RequestStatus requestStatus});
 }
 
 /// @nodoc
@@ -49,7 +49,7 @@ class _$PosStateCopyWithImpl<$Res, $Val extends PosState>
   @override
   $Res call({
     Object? searchInput = freezed,
-    Object? goods = freezed,
+    Object? goods = null,
     Object? requestStatus = null,
   }) {
     return _then(_value.copyWith(
@@ -57,27 +57,15 @@ class _$PosStateCopyWithImpl<$Res, $Val extends PosState>
           ? _value.searchInput
           : searchInput // ignore: cast_nullable_to_non_nullable
               as String?,
-      goods: freezed == goods
+      goods: null == goods
           ? _value.goods
           : goods // ignore: cast_nullable_to_non_nullable
-              as Goods?,
+              as List<Goods>,
       requestStatus: null == requestStatus
           ? _value.requestStatus
           : requestStatus // ignore: cast_nullable_to_non_nullable
               as RequestStatus,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $GoodsCopyWith<$Res>? get goods {
-    if (_value.goods == null) {
-      return null;
-    }
-
-    return $GoodsCopyWith<$Res>(_value.goods!, (value) {
-      return _then(_value.copyWith(goods: value) as $Val);
-    });
   }
 }
 
@@ -89,10 +77,8 @@ abstract class _$$PosStateImplCopyWith<$Res>
       __$$PosStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? searchInput, Goods? goods, RequestStatus requestStatus});
-
-  @override
-  $GoodsCopyWith<$Res>? get goods;
+  $Res call(
+      {String? searchInput, List<Goods> goods, RequestStatus requestStatus});
 }
 
 /// @nodoc
@@ -107,7 +93,7 @@ class __$$PosStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? searchInput = freezed,
-    Object? goods = freezed,
+    Object? goods = null,
     Object? requestStatus = null,
   }) {
     return _then(_$PosStateImpl(
@@ -115,10 +101,10 @@ class __$$PosStateImplCopyWithImpl<$Res>
           ? _value.searchInput
           : searchInput // ignore: cast_nullable_to_non_nullable
               as String?,
-      goods: freezed == goods
-          ? _value.goods
+      goods: null == goods
+          ? _value._goods
           : goods // ignore: cast_nullable_to_non_nullable
-              as Goods?,
+              as List<Goods>,
       requestStatus: null == requestStatus
           ? _value.requestStatus
           : requestStatus // ignore: cast_nullable_to_non_nullable
@@ -132,14 +118,24 @@ class __$$PosStateImplCopyWithImpl<$Res>
 class _$PosStateImpl implements _PosState {
   const _$PosStateImpl(
       {this.searchInput = '',
-      this.goods,
-      this.requestStatus = RequestStatus.waiting});
+      final List<Goods> goods = const [],
+      this.requestStatus = RequestStatus.waiting})
+      : _goods = goods;
 
   @override
   @JsonKey()
   final String? searchInput;
+// Goods? goods,
+  final List<Goods> _goods;
+// Goods? goods,
   @override
-  final Goods? goods;
+  @JsonKey()
+  List<Goods> get goods {
+    if (_goods is EqualUnmodifiableListView) return _goods;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_goods);
+  }
+
   @override
   @JsonKey()
   final RequestStatus requestStatus;
@@ -156,14 +152,14 @@ class _$PosStateImpl implements _PosState {
             other is _$PosStateImpl &&
             (identical(other.searchInput, searchInput) ||
                 other.searchInput == searchInput) &&
-            (identical(other.goods, goods) || other.goods == goods) &&
+            const DeepCollectionEquality().equals(other._goods, _goods) &&
             (identical(other.requestStatus, requestStatus) ||
                 other.requestStatus == requestStatus));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, searchInput, goods, requestStatus);
+  int get hashCode => Object.hash(runtimeType, searchInput,
+      const DeepCollectionEquality().hash(_goods), requestStatus);
 
   @JsonKey(ignore: true)
   @override
@@ -175,13 +171,13 @@ class _$PosStateImpl implements _PosState {
 abstract class _PosState implements PosState {
   const factory _PosState(
       {final String? searchInput,
-      final Goods? goods,
+      final List<Goods> goods,
       final RequestStatus requestStatus}) = _$PosStateImpl;
 
   @override
   String? get searchInput;
-  @override
-  Goods? get goods;
+  @override // Goods? goods,
+  List<Goods> get goods;
   @override
   RequestStatus get requestStatus;
   @override

@@ -7,7 +7,8 @@ part 'pos_state.freezed.dart';
 class PosState with _$PosState {
   const factory PosState({
     @Default('') String? searchInput,
-    Goods? goods,
+    // Goods? goods, //single
+    @Default([]) List<Goods> goods, //dynamic
     @Default(RequestStatus.waiting) RequestStatus requestStatus,
   }) = _PosState;
 }

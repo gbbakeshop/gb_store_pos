@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gb_pos_store/app/pos/bloc/pos_bloc.dart';
+import 'package:gb_pos_store/app/pos/bloc/pos_state/pos_state.dart';
+import 'package:gb_pos_store/models/models.dart';
 
 class POSViewCalculation extends StatefulWidget {
   const POSViewCalculation({super.key});
@@ -10,12 +14,25 @@ class POSViewCalculation extends StatefulWidget {
 class _POSViewCalculationState extends State<POSViewCalculation> {
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.all(16.0),
-      child: InvoiceDetails(
-        subtotal: 200,
-        tax: 200,
-      ),
+    return BlocBuilder<PosBloc, PosState>(
+      builder: (context, state) {
+        final List<Goods>? goodsList = state.goods;
+        double subtotal = 0;
+        goodsList?.forEach((item) {
+          int quantity = item.quantity; // Accessing quantity using dot notation
+          double price =
+              item.price.toDouble(); // Accessing price using dot notation
+          double itemTotal = quantity * price;
+          subtotal += itemTotal;
+        });
+        return Padding(
+          padding: EdgeInsets.all(16.0),
+          child: InvoiceDetails(
+            subtotal: subtotal,
+            tax: 0,
+          ),
+        );
+      },
     );
   }
 }
