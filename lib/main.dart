@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gb_pos_store/app/pos/views/_pos_views.dart';
+import 'package:gb_pos_store/app/pages/items/view/view.dart';
 import 'package:gb_pos_store/repositories/item_repository.dart';
 import 'package:gb_pos_store/repositories/repositories.dart';
 import 'package:gb_pos_store/services/item_service.dart';
@@ -43,7 +43,7 @@ class _MyAppState extends State<MyApp> {
               seedColor: const Color.fromARGB(255, 255, 1, 1)),
           useMaterial3: true,
         ),
-        home: const PosPage(),
+        home: const ItemPage(),
       ),
     );
   }
