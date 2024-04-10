@@ -23,7 +23,12 @@ class ItemRepository {
     // var goods = Goods.fromJson(body);
     // print('Goods Object: $goods');
     return Result(
-      data: Goods.fromJson(body['data']),
+      data: Goods.fromJson({
+        ...body['data'],
+        'quantity': 1,
+        'total': body['data']['quantity'] *
+            1 // Add the 'price' key with value 1 to the JSON data
+      }),
       statusCode: response.statusCode,
     );
   }
